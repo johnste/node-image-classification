@@ -48,7 +48,6 @@ async function rename(imagePredictions) {
 
       if (rating > 0.9) {
         stars += "⭐️";
-        option = i + 1;
       }
 
       console.log(`${i + 1}: ${name} ${stars}`);
@@ -57,9 +56,9 @@ async function rename(imagePredictions) {
     console.log(await imgcat(path, { height: 5 }));
     console.log(`Do you want to rename ${chalk.magenta(path)} to:`);
 
-    //const result = await prompt.get(["option"]);
+    const result = await prompt.get(["option"]);
 
-    //const option = +result.option;
+    const option = +result.option;
 
     if (option >= 1 && option <= suggestedNames.length) {
       const selectedName = suggestedNames[option - 1].name;
